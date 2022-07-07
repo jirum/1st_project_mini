@@ -1,44 +1,46 @@
 class UrlsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: :show
-  before_action :set_own_post, only: :destroy
+  before_action :set_url, only: :show
+  before_action :set_own_url, only: :destroy
 
   def index
-    @urls = Url.all.includes(:users)
+    @urls = Url.all.includes(:user)
   end
 
   def new
-    @urls = Url.new
+    @url = Url.new
   end
 
   def create
-    @urls= Url.new(url_params)
-    @urls.users = current_user
-    if @urls.save
+    @url= Url.new(url_params)
+    @url.user = current_user
+    if @url.save
       redirect_to urls_path
     else
       render :new
     end
   end
 
+
   def destroy
-    if @post.destroy
-      redirect_to posts_path
+    if @url.destroy
+      redirect_to urls_path
     end
   end
 
-  private
 
   def set_own_url
     @url = current_user.urls.find_by_id(params[:id])
     if @url.nil?
       flash[:alert] = 'this url not belongs_to you or not exists'
-      redirect_to posts_path
+      redirect_to urls_path
     end
   end
 
+  private
+
   def url_params
-    params.require(:post).permit(:description, :long_url)
+    params.require(:url).permit(:description, :long_url, :short_url)
   end
 
   def set_url

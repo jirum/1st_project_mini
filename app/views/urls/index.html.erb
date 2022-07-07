@@ -2,11 +2,19 @@
 
 <% @urls.each do |url| %>
   <ul>
-    <li><%= url.users.email %></li>
     <li>id:<%= url.id %></li>
     <li>description:<%= url.description %></li>
     <li>short url:<%= url.short_url %></li>
     <li>long url:<%= url.long_url %></li>
-  </ul>
 
+  <li>
+    <%= form_for url, url: url_path(url), method: :delete do |f| %>
+      <%= f.submit 'delete' %>
+    <% end %>
+  </li>
+
+  </ul>
 <% end %>
+
+
+<%= link_to 'New', new_url_path %>

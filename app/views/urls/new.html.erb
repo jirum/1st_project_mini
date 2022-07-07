@@ -1,10 +1,6 @@
 <h1>New Url</h1>
-<% if @urls.errors.any? %>
-  <% @urls.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-<% end %>
-<%= form_for @urls, url: urls_path, method: :post do |f| %>
+
+<%= form_for @url, url: url_path, method: :post do |f| %>
   <%= f.label :description %>
   <%= f.text_field :description %>
 
