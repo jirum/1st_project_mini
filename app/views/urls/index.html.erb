@@ -1,1 +1,12 @@
-<h1>HELLO WORLD</h1>
+<h1>URL List</h1>
+
+<% @urls.each do |url| %>
+  <ul>
+    <li><%= url.users.email %></li>
+    <li>id:<%= url.id %></li>
+    <li>description:<%= url.description %></li>
+    <li>short url:<%= url.short_url %></li>
+    <li>long url:<%= url.long_url %></li>
+  </ul>
+
+<% end %>
