@@ -4,15 +4,15 @@ class UrlsController < ApplicationController
   before_action :set_own_url, only: :destroy
 
   def index
-    @urls = Url.all.includes(:user)
+    @url = Url.all.includes(:user)
   end
 
   def new
-    @url = Url.new
+    @url= Url.new
   end
 
   def create
-    @url= Url.new(url_params)
+    @url = Url.new(url_params)
     @url.user = current_user
     if @url.save
       redirect_to urls_path
@@ -21,6 +21,7 @@ class UrlsController < ApplicationController
     end
   end
 
+  def show; end
 
   def destroy
     if @url.destroy
