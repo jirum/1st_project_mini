@@ -14,8 +14,9 @@ ActiveRecord::Schema.define(version: 2022_07_06_085529) do
 
   create_table "urls", charset: "utf8mb4", force: :cascade do |t|
     t.string "description"
-    t.text "long_url"
+    t.string "long_url"
     t.string "short_url"
+    t.integer "clicked", default: 0
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
