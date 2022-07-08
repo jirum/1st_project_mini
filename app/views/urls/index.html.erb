@@ -2,9 +2,9 @@
 
 <% @url.each do |url| %>
   <ul>
-    <li>id:<%= url.id %></li>
-    <li>description:<%= url.description %></li>
-    <li>short url:<%= url.short_url %></li>
+    <li>Id:<%= url.id %></li>
+    <li>Description:<%= url.description %></li>
+    <li>Short URL:<%= link_to "#{@domain}/#{url.short_url}", url.short_url %></li>
     <li>long url:<%= url.long_url %></li>
 
   <li>

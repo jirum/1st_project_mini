@@ -5,6 +5,7 @@ class UrlsController < ApplicationController
 
   def index
     @url = Url.all.includes(:user)
+    @domain = request.base_url
   end
 
   def redirect
