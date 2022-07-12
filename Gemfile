@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'mysql2'
 gem 'devise'
+gem 'kaminari'
 
 
 group :development, :test do
