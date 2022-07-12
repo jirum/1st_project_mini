@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/urls' => 'urls#index'
   get '/:short_url' => 'urls#redirect'
   root :to => "urls#index"
-  resources :urls
+  resources :urls, only: [:index, :new, :create, :edit, :update, :destroy]
+
 end
