@@ -8,6 +8,7 @@
     <li>long url:<%= url.long_url %></li>
 
   <li>
+    <%= link_to "edit this url #{url.id}", edit_url_path(url) if url.user == current_user %>
     <%= form_for url, url: url_path(url), method: :delete do |f| %>
       <%= f.submit 'delete' %>
     <% end %>
