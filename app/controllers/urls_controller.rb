@@ -4,7 +4,7 @@ class UrlsController < ApplicationController
   before_action :set_own_url, only: [:destroy, :edit, :update]
 
   def index
-    @url = Url.all.includes(:user)
+    @urls = Url.includes(:user).page(params[:page]).per(5)
     @domain = request.base_url
   end
 
@@ -28,12 +28,13 @@ class UrlsController < ApplicationController
     end
   end
 
-  def edit;
+  def edit
+    session[:return_to] ||= request.referer
   end
 
   def update
     if @url.update(url_params)
-      redirect_to urls_path
+      redirect_to session.delete(:return_to)
     else
       render :edit
     end
