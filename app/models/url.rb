@@ -13,4 +13,5 @@ class Url < ApplicationRecord
     end
     self.short_url=@short
   end
+  mount_uploader :image, ImageUploader
 end

@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'mysql2'
 gem 'devise'
 gem 'kaminari'
+gem 'carrierwave', '~> 2.0'
 
 
 group :development, :test do
