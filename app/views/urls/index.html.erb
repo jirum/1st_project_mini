@@ -7,6 +7,7 @@
     <th scope="col">Description</th>
     <th scope="col">Short Url</th>
     <th scope="col">Long Url</th>
+    <th scope="col">Image</th>
     <th scope="col">Action</th>
   </tr>
   </thead>
@@ -17,6 +18,7 @@
       <td><%= url.description %></td>
       <td><%= link_to "#{@domain}/#{url.short_url}", url.short_url %></td>
       <td><%= url.long_url %></td>
+      <td><%= image_tag "#{@domain}/#{url.image.url}" if url.image? %></td>
       <td><%= link_to "Edit" ,edit_url_path(url), class:'btn btn-primary'if url.user == current_user %></td>
       <td><%= form_for url, url: url_path(url), method: :delete do |f| %>
           <%= f.submit 'Delete', class:'btn btn-danger'if url.user == current_user %>
