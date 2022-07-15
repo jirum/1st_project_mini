@@ -32,6 +32,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'carrierwave', '~> 2.0'
 gem 'rest-client'
+gem 'active_model_serializers'
 
 
 group :development, :test do
