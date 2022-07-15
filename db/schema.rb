@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_055247) do
+ActiveRecord::Schema.define(version: 2022_07_15_055833) do
+
+  create_table "city_municipalities", charset: "utf8mb4", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.boolean "is_capital"
+    t.boolean "is_city"
+    t.boolean "is_municipality"
+    t.bigint "district_id"
+    t.bigint "province_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["district_id"], name: "index_city_municipalities_on_district_id"
+    t.index ["province_id"], name: "index_city_municipalities_on_province_id"
+  end
 
   create_table "districts", charset: "utf8mb4", force: :cascade do |t|
     t.string "code"
