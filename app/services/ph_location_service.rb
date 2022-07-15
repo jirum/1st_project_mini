@@ -21,4 +21,13 @@ class PhLocationService
       Province.find_or_create_by(code: province['code'], name: province['name'], region: region)
     end
   end
+
+  def get_districts
+    response = RestClient.get("#{url}/districts")
+    districts = JSON.parse(response.body)
+    districts.each do |district|
+      region = Region.find_by_code(district['regionCode'])
+      District.find_or_create_by(code: district['code'], name: district['name'], region: region)
+    end
+  end
 end
