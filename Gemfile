@@ -31,6 +31,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'kaminari'
 gem 'carrierwave', '~> 2.0'
+gem 'rest-client'
 
 
 group :development, :test do
