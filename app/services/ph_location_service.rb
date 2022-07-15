@@ -44,4 +44,18 @@ class PhLocationService
       end
     end
   end
+
+  def get_barangays
+    response = RestClient.get("#{url}/barangays")
+    barangays = JSON.parse(response.body)
+    barangays.each do |barangay|
+      if barangay['cityCode']
+        city_municipality = CityMunicipality.find_by_code(barangay['cityCode'])
+        Barangay.find_or_create_by(code: barangay['code'], name: barangay['name'], city_municipality:city_municipality)
+      else
+        city_municipality = CityMunicipality.find_by_code(barangay['municipalityCode'])
+        Barangay.find_or_create_by(code: barangay['code'], name: barangay['name'], city_municipality:city_municipality)
+      end
+    end
+  end
 end

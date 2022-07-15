@@ -4,4 +4,5 @@ class CityMunicipality < ApplicationRecord
 
   belongs_to :province, optional: true
   belongs_to :district, optional: true
+  has_many :barangays
 end
