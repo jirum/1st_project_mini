@@ -1,0 +1,21 @@
+<h1>All Cities Municipalities</h1>
+<table class="table table-stripped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Is City</th>
+    <th>Is Municipality</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @cities_municipalities.each do |city_municipality| %>
+    <tr>
+      <td><%= city_municipality.code %></td>
+      <td><%= city_municipality.name %></td>
+      <td><%= city_municipality.is_city %></td>
+      <td><%= city_municipality.is_municipality %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
