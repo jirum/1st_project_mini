@@ -1,0 +1,19 @@
+<h1>All Districts</h1>
+<table class="table table-stripped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Region</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @districts.each do |district| %>
+    <tr>
+      <td><%= district.code %></td>
+      <td><%= district.name %></td>
+      <td><%= district.region_id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
